@@ -1,0 +1,14 @@
+WEB PRESENSI 2026
+
+composer require filament/filament:"~4.0"
+
+php artisan filament:install --panels
+
+login filament : http://127.0.0.1:8000/admin/login
+
+Membuat user di Filament :
+php artisan make:filament-user
+
+user : admin@gls.com
+pass : edppdew
+
