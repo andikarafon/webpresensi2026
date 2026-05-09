@@ -12,3 +12,38 @@ php artisan make:filament-user
 user : admin@gls.com
 pass : edppdew
 
+step by step upload project ke github
+1. git init
+2. buat repository di github, lalu copy url nya
+3. remote github dengan perintah "git remote add origin https://github.com/andikarafon/webpresensi2026.git"
+4. git branch -M main
+5. git commit -m "first commit"
+6. git push -u origin main
+
+
+php artisan serve --host=192.168.100.40 --port=8080
+
+php artisan make:migration add_fields_to_users
+php artisan make:migration create_companies_table
+php artisan make:migration create_attendances_table
+php artisan make:model Company
+php artisan make:model Attendance
+
+
+php artisan make:filament-resource User --generate
+php artisan make:filament-resource Company --generate
+php artisan make:filament-resource Attendance --generate
+
+php artisan db:seed
+
+php artisan make:filament-widget StatsOverview --stats-overview
+php artisan make:filament-widget LatestAttendanceWidget
+
+API-Laravel Sanctum
+php artisan install:api
+
+Scramble-API Documentation
+https://scramble.dedoc.co/
+
+composer require dedoc/scramble
+
