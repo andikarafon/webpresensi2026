@@ -16,19 +16,19 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->date('attendance_date');
             $table->datetime('check_in_time');
-            $table->decimal('check_in_latitude', 10, 8);
-            $table->decimal('check_in_longitude', 11, 8);
+            $table->decimal('check_in_latitude', 12, 8);
+            $table->decimal('check_in_longitude', 12, 8);
             $table->string('check_in_photo');
             $table->datetime('check_out_time')->nullable();
-            $table->decimal('check_out_latitude', 10, 8)->nullable();
-            $table->decimal('check_out_longitude', 10, 8)->nullable();
+            $table->decimal('check_out_latitude', 12, 8)->nullable();
+            $table->decimal('check_out_longitude', 12, 8)->nullable();
             $table->string('check_out_photo')->nullable();
             $table->enum('status', ['on_time', 'late'])->default('on_time');
             $table->timestamps();
             $table->softDeletes();
 
             $table->index('user_id', 'check_in_time');
-            $table->unique('user_id', 'attendance_date');
+            
         });
     }
 
