@@ -10,6 +10,13 @@ class EditCompany extends EditRecord
 {
     protected static string $resource = CompanyResource::class;
 
+    protected function getRedirectUrl(): string
+    {
+        return $this->getResource()::getUrl('index', [
+            'record' => $this->record,
+        ]);
+    }
+
     protected function getHeaderActions(): array
     {
         return [

@@ -7,6 +7,7 @@ use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
+use Filament\Forms\Components\FileUpload;
 
 class AttendanceForm
 {
@@ -27,14 +28,24 @@ class AttendanceForm
                 TextInput::make('check_in_longitude')
                     ->required()
                     ->numeric(),
-                TextInput::make('check_in_photo')
-                    ->required(),
+                // TextInput::make('check_in_photo')
+                //     ->required(),
+                FileUpload::make('check_in_photo')
+                    ->image()
+                    ->directory('products')
+                    ->disk('public')
+                    ->visibility('public'),
                 DateTimePicker::make('check_out_time'),
                 TextInput::make('check_out_latitude')
                     ->numeric(),
                 TextInput::make('check_out_longitude')
                     ->numeric(),
-                TextInput::make('check_out_photo'),
+                FileUpload::make('check_out_photo')
+                    ->image()
+                    ->directory('products')
+                    ->disk('public')
+                    ->visibility('public'),
+                // TextInput::make('check_out_photo'),
                 Select::make('status')
                     ->options(['on_time' => 'On time', 'late' => 'Late'])
                     ->default('on_time')

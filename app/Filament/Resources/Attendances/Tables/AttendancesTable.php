@@ -10,6 +10,7 @@ use Filament\Actions\RestoreBulkAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\TrashedFilter;
 use Filament\Tables\Table;
+use Filament\Tables\Columns\ImageColumn;
 
 class AttendancesTable
 {
@@ -25,25 +26,33 @@ class AttendancesTable
                 TextColumn::make('check_in_time')
                     ->dateTime()
                     ->sortable(),
-                TextColumn::make('check_in_latitude')
-                    ->numeric()
-                    ->sortable(),
-                TextColumn::make('check_in_longitude')
-                    ->numeric()
-                    ->sortable(),
-                TextColumn::make('check_in_photo')
-                    ->searchable(),
+                // TextColumn::make('check_in_latitude')
+                //     ->numeric()
+                //     ->sortable(),
+                // TextColumn::make('check_in_longitude')
+                //     ->numeric()
+                //     ->sortable(),
+                ImageColumn::make('check_in_photo')
+                    ->disk('public')
+                    ->label('Check In Photo')
+                    ->imageHeight(60)
+                    ->imageWidth(60)
+                    ->circular(),
                 TextColumn::make('check_out_time')
                     ->dateTime()
                     ->sortable(),
-                TextColumn::make('check_out_latitude')
-                    ->numeric()
-                    ->sortable(),
-                TextColumn::make('check_out_longitude')
-                    ->numeric()
-                    ->sortable(),
-                TextColumn::make('check_out_photo')
-                    ->searchable(),
+                // TextColumn::make('check_out_latitude')
+                //     ->numeric()
+                //     ->sortable(),
+                // TextColumn::make('check_out_longitude')
+                //     ->numeric()
+                //     ->sortable(),
+                ImageColumn::make('check_out_photo')
+                    ->disk('public')
+                    ->label('Check Out Photo')
+                    ->imageHeight(60)
+                    ->imageWidth(60)
+                    ->circular(),
                 TextColumn::make('status')
                     ->badge(),
                 TextColumn::make('created_at')
